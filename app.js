@@ -9,7 +9,8 @@ const partialsPath = path.join(__dirname, "./", "templates", "/partials");
 
 const geoCode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
-const { isBuffer } = require("util");
+
+const port=process.env.PORT||3000;
 //setup handlebars enfine and views lcoations
 app.set("view engine", "hbs");
 app.set("views", viewsPath);
@@ -68,6 +69,6 @@ app.get("*", (req, res) => {
     errorMessage: "Error Page",
   });
 });
-app.listen(3000, () => {
-  console.log("listening to 30000");
+app.listen(port, () => {
+  console.log("listening to "+port);
 });
